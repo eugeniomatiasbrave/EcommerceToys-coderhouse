@@ -20,7 +20,6 @@ import { handlerError } from "./middlewares/handler.error.js";
 import { info } from "./docs/info.js";
 import initializePassportConfig from "./passport/jwt.js";
 
-
 const app = express();
 
 const PORT = process.env.PORT || 8080;
