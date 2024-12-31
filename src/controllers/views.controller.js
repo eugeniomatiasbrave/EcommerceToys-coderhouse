@@ -1,4 +1,4 @@
-import {productsService, cartsService, ticketsService, usersService} from "../services/repositories.js";
+import {productsService, cartsService, ticketsService } from "../services/repositories.js";
 
 const renderHome = (req, res) => {
     res.render('Home');
@@ -60,6 +60,7 @@ const renderRealTimeProducts = async (req, res) => {
 
 const renderProductDetail = async (req, res) => {
   try {
+   
     const product = await productsService.getProductById(req.params.pid);
     const cart = await cartsService.getCartById(req.params.cid);
     if (!product) {

@@ -82,33 +82,21 @@ const initializePassportConfig = () => {
         }
     }));
 
-   
+    
     passport.use('current', new JWTStrategy({
-        secretOrKey: SECRET_KEY,
-        jwtFromRequest: ExtractJwt.fromExtractors([cookieExtractor])
-    }, async (tokenData, done) => {
+        jwtFromRequest: ExtractJwt.fromExtractors([cookieExtractor]),
+        secretOrKey: SECRET_KEY
+    }, async (tokenData , done) => {
+        
         try {
+            console.log('tokenData',tokenData);
             return done(null,tokenData);
         } catch (error) {
             return done(error);
         }
     }));
 
-    /* Para mas adelante en otras implementaciones
-    
-    passport.serializeUser((user, done) => {
-        done(null, user._id);
-    });
-
-    passport.deserializeUser(async (id, done) => {
-        try {
-            const user = await usersService.getUserById(id);
-            done(null, user);
-        } catch (error) {
-            done(error);
-        }
-    });
-    */
+   
 
 };
 

@@ -10,4 +10,5 @@ export default class AuthService {
 	async validatePassword(password, userPassword) {
 		return bcrypt.compare(password, userPassword);
 	}
+
 }

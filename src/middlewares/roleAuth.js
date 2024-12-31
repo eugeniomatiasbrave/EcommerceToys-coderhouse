@@ -4,7 +4,7 @@ export const roleAuth = (roles) => {
         if (roles.includes('PUBLIC')) return next();
         if (!req.user) return res.status(401).json({ error: 'Unauthorized' });
         if (roles.includes('AUTHORIZED') && !req.user) return res.status(401).json({ error: 'Unauthorized' });
-        if (roles.includes(req?.user?.role?.toUpperCase())) return next();
+        if (roles.includes(req.user.role)) return next();
         return res.status(403).json({ error: 'Forbidden' });
     }
 }
