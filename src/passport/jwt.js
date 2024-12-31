@@ -49,6 +49,11 @@ const initializePassportConfig = () => {
                 cartId: newCart._id // Initialize cartId as null
             };
             const result = await usersService.createUser(newUser);
+
+            if (result) {
+                // Update the user's cart reference
+                await usersService.updateUser(result._id, { cartId: newCart._id });
+            }
             
             const cart = await cartsService.getCartById(result.cartId);
             result.cartId = cart._id;
@@ -95,9 +100,6 @@ const initializePassportConfig = () => {
             return done(error);
         }
     }));
-
-   
-
 };
 
 function cookieExtractor(req) {

@@ -25,7 +25,7 @@ export default class CartDAO {
             throw new Error('Cart not found');
         }
       
-        const productIndex = cart.products.findIndex(p => p.product.toString() === pid);
+        const productIndex = cart.products.findIndex(p => p.product && p.product.toString() === pid);
       if (productIndex > -1) {
         // Si el producto ya está en el carrito, actualiza la cantidad
         cart.products[productIndex].quantity += quantity;
