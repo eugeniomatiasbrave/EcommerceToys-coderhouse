@@ -1,0 +1,36 @@
+
+
+<h1>Detalle del Producto</h1>
+
+<div class="card shadow-lg compact bg-base-100 w-1/4 border border-white">
+  {{#each product}}
+    <div class="flex flex-wrap gap-2">
+      {{#each this.thumbnails}}
+        <img src="{{this.path}}" class="w-52 h-52 object-cover rounded-lg">
+      {{/each}}
+    </div>
+    <p>{{this._id}}</p>
+    <p>{{this.title}}</p>
+    <p>{{this.description}}</p>
+    <p>{{this.code}}</p>
+    <p>{{this.price}}</p>
+    <p>{{this.status}}</p>
+    <p>{{this.stock}}</p>
+    <p>{{this.category}}</p>
+  {{/each}}
+
+
+  <form id="form-detail" action="/api/carts/{{cartId}}/product/{{product._id}}" method="POST">
+    <div class="compact bg-base-200 py-2">
+      <label class="label">
+        <span class="label-text">Indicar Cantidad</span>
+      </label>
+      <input type="number" name="quantity" class="input input-bordered" placeholder="Cantidad">
+    </div>
+    <div class="card-actions">
+      <button type="submit" class="btn btn-primary">Agregar al Cart</button>
+    </div>
+  </form>
+</div>
+
+<script src="/js/details.js"></script>

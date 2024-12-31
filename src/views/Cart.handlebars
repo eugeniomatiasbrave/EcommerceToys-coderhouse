@@ -1,0 +1,51 @@
+
+
+
+
+<div class="overflow-x-auto">
+   <h1 class="text-3xl font-bold mb-4">Carrito de Compras: {{cartId}}</h1>
+    <table class="table w-full">
+      <thead>
+        <tr>
+          <th>ProductId</th>
+          <th>Name</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Delete</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each cart.products}}
+          <tr>
+            <td>{{this.product._id}}</td>
+            <td>{{this.product.title}}</td>
+            <td>{{this.quantity}}</td>
+            <td>{{this.product.price}}</td>
+            <td>
+                <form class="delete-product-form" action="/api/carts/{{../cartId}}/products/{{this.product._id}}" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-error">Eliminar</button>
+                </form>
+            </td>
+            <td>{{multiply this.quantity this.product.price}}</td>
+          </tr>
+        {{/each}}
+        <tr>
+          <td colspan="5" class="text-right font-bold">Total:</td>
+          <td>{{calculateTotal cart.products}}</td>
+        </tr>
+      </tbody>
+    </table>
+     <form class="delete-all-products-cid" action="/api/carts/{{cartId}}/products" method="PUT">
+        <input type="hidden" name="_method" value="PUT">
+        <button type="submit" class="btn btn-error mt-4">Eliminar Todos</button>
+    </form>
+    <form class="purchase-form" action="/api/carts/{{cartId}}/purchase" method="POST">
+        <input type="hidden" name="_method" value="POST">
+        <button type="submit" class="btn btn-primary mt-4">Comprar</button>
+    </form>
+    <a href="http://localhost:8080/ticket" class="btn btn-info">Ver Ticket</a>
+  </div>
+
+<script src="/js/cart.js"></script>
