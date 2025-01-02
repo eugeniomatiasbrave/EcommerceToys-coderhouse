@@ -11,3 +11,166 @@
 [2024-12-31T14:56:05.966] [INFO] default - Producto obtenido con éxito
 [2024-12-31T15:02:36.384] [INFO] default - Productos obtenidos con éxito
 [2024-12-31T15:02:36.448] [INFO] default - Producto obtenido con éxito
+[2025-01-02T06:10:53.677] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T06:10:53.752] [INFO] default - Producto obtenido con éxito
+[2025-01-02T06:35:45.111] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T06:35:45.179] [INFO] default - Producto obtenido con éxito
+[2025-01-02T06:41:41.011] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T06:41:41.074] [INFO] default - Producto obtenido con éxito
+[2025-01-02T08:13:46.796] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T08:13:46.868] [INFO] default - Producto obtenido con éxito
+[2025-01-02T08:15:29.736] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T08:15:29.806] [INFO] default - Producto obtenido con éxito
+[2025-01-02T08:18:08.166] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T08:18:08.235] [INFO] default - Producto obtenido con éxito
+[2025-01-02T08:22:36.295] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T08:22:36.368] [INFO] default - Producto obtenido con éxito
+[2025-01-02T08:32:18.367] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T08:32:18.435] [INFO] default - Producto obtenido con éxito
+[2025-01-02T08:32:18.447] [ERROR] default - Error al crear el producto
+[2025-01-02T08:40:41.393] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T08:40:41.478] [INFO] default - Producto obtenido con éxito
+[2025-01-02T08:40:41.493] [ERROR] default - Error al crear el producto
+[2025-01-02T08:45:56.697] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T08:45:56.778] [INFO] default - Producto obtenido con éxito
+[2025-01-02T08:45:56.807] [ERROR] default - Error al crear el producto
+[2025-01-02T09:20:20.767] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T09:20:20.836] [INFO] default - Producto obtenido con éxito
+[2025-01-02T09:28:51.175] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T09:28:51.244] [INFO] default - Producto obtenido con éxito
+[2025-01-02T09:28:51.257] [ERROR] default - Error al crear el producto
+[2025-01-02T09:30:29.850] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T09:30:30.012] [INFO] default - Producto obtenido con éxito
+[2025-01-02T09:30:30.026] [ERROR] default - Error al crear el producto
+[2025-01-02T09:38:21.177] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T09:38:21.252] [INFO] default - Producto obtenido con éxito
+[2025-01-02T09:38:21.264] [ERROR] default - Error al crear el producto
+[2025-01-02T09:45:29.638] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T09:45:29.701] [INFO] default - Producto obtenido con éxito
+[2025-01-02T09:45:29.712] [ERROR] default - Error al crear el producto
+[2025-01-02T09:53:39.284] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T09:53:39.351] [INFO] default - Producto obtenido con éxito
+[2025-01-02T09:53:39.362] [ERROR] default - Error al crear el producto
+[2025-01-02T09:54:26.731] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T09:54:26.796] [INFO] default - Producto obtenido con éxito
+[2025-01-02T09:54:26.809] [ERROR] default - Error al crear el producto
+[2025-01-02T09:58:44.201] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T09:58:44.261] [INFO] default - Producto obtenido con éxito
+[2025-01-02T09:58:44.273] [ERROR] default - Error al crear el producto
+[2025-01-02T10:11:51.762] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T10:11:51.826] [INFO] default - Producto obtenido con éxito
+[2025-01-02T10:11:51.838] [ERROR] default - Error al crear el producto
+[2025-01-02T10:57:55.186] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T10:57:55.254] [INFO] default - Producto obtenido con éxito
+[2025-01-02T10:57:55.264] [ERROR] default - Error al crear el producto
+[2025-01-02T10:59:47.161] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T10:59:47.253] [INFO] default - Producto obtenido con éxito
+[2025-01-02T10:59:47.267] [ERROR] default - Error al crear el producto
+[2025-01-02T10:59:47.389] [INFO] default - Producto borrado con éxito
+[2025-01-02T11:16:39.300] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T11:16:39.315] [ERROR] default - Error al obtener el producto
+[2025-01-02T11:16:39.326] [ERROR] default - Error al crear el producto
+[2025-01-02T11:16:39.341] [ERROR] default - Error al borrar el producto
+[2025-01-02T11:19:20.334] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T11:19:20.350] [ERROR] default - Error al obtener el producto
+[2025-01-02T11:19:20.363] [ERROR] default - Error al crear el producto
+[2025-01-02T11:19:20.378] [ERROR] default - Error al borrar el producto
+[2025-01-02T11:21:22.450] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T11:21:22.468] [ERROR] default - Error al obtener el producto
+[2025-01-02T11:21:22.480] [ERROR] default - Error al crear el producto
+[2025-01-02T11:21:22.495] [ERROR] default - Error al borrar el producto
+[2025-01-02T11:25:35.263] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T11:25:35.279] [ERROR] default - Error al obtener el producto
+[2025-01-02T11:25:35.292] [ERROR] default - Error al crear el producto
+[2025-01-02T11:25:35.307] [ERROR] default - Error al borrar el producto
+[2025-01-02T11:31:28.027] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T11:31:28.043] [ERROR] default - Error al obtener el producto
+[2025-01-02T11:31:28.074] [ERROR] default - Error al borrar el producto
+[2025-01-02T11:33:24.898] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T11:33:24.912] [ERROR] default - Error al obtener el producto
+[2025-01-02T11:33:24.938] [ERROR] default - Error al borrar el producto
+[2025-01-02T11:53:34.692] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T11:53:34.703] [ERROR] default - Error al obtener el producto
+[2025-01-02T11:53:34.734] [ERROR] default - Error al borrar el producto
+[2025-01-02T11:59:49.721] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T11:59:49.735] [ERROR] default - Error al obtener el producto
+[2025-01-02T11:59:49.760] [ERROR] default - Error al borrar el producto
+[2025-01-02T12:22:05.073] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T12:22:05.084] [ERROR] default - Error al obtener el producto
+[2025-01-02T12:22:05.109] [ERROR] default - Error al borrar el producto
+[2025-01-02T12:27:51.989] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T12:27:52.004] [ERROR] default - Error al obtener el producto
+[2025-01-02T12:27:52.030] [ERROR] default - Error al borrar el producto
+[2025-01-02T12:46:35.834] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T12:46:35.853] [ERROR] default - Error al obtener el producto
+[2025-01-02T12:46:35.881] [ERROR] default - Error al borrar el producto
+[2025-01-02T12:48:34.689] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T12:48:34.701] [ERROR] default - Error al obtener el producto
+[2025-01-02T12:48:34.729] [ERROR] default - Error al borrar el producto
+[2025-01-02T12:52:29.027] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T12:52:29.042] [ERROR] default - Error al obtener el producto
+[2025-01-02T12:52:29.079] [ERROR] default - Error al borrar el producto
+[2025-01-02T12:55:14.856] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T12:55:14.867] [ERROR] default - Error al obtener el producto
+[2025-01-02T12:55:14.896] [ERROR] default - Error al borrar el producto
+[2025-01-02T12:58:05.223] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T12:58:05.238] [ERROR] default - Error al obtener el producto
+[2025-01-02T12:58:05.266] [ERROR] default - Error al borrar el producto
+[2025-01-02T12:59:24.141] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T12:59:24.158] [ERROR] default - Error al obtener el producto
+[2025-01-02T12:59:24.186] [ERROR] default - Error al borrar el producto
+[2025-01-02T13:02:50.223] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T13:02:50.237] [ERROR] default - Error al obtener el producto
+[2025-01-02T13:02:50.265] [ERROR] default - Error al borrar el producto
+[2025-01-02T13:04:01.075] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T13:04:01.095] [ERROR] default - Error al obtener el producto
+[2025-01-02T13:04:01.121] [ERROR] default - Error al borrar el producto
+[2025-01-02T13:05:12.951] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T13:05:12.965] [ERROR] default - Error al obtener el producto
+[2025-01-02T13:05:12.992] [ERROR] default - Error al borrar el producto
+[2025-01-02T13:06:33.926] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T13:06:33.942] [ERROR] default - Error al obtener el producto
+[2025-01-02T13:06:33.970] [ERROR] default - Error al borrar el producto
+[2025-01-02T13:07:01.618] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T13:07:01.634] [ERROR] default - Error al obtener el producto
+[2025-01-02T13:07:01.662] [ERROR] default - Error al borrar el producto
+[2025-01-02T13:18:50.557] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T13:18:50.570] [ERROR] default - Error al obtener el producto
+[2025-01-02T13:18:50.679] [ERROR] default - Error al borrar el producto
+[2025-01-02T13:24:53.144] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T13:24:53.200] [INFO] default - Producto obtenido con éxito
+[2025-01-02T13:24:53.320] [INFO] default - Producto borrado con éxito
+[2025-01-02T13:40:55.793] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T13:40:55.809] [ERROR] default - Error al obtener el producto
+[2025-01-02T13:40:55.825] [ERROR] default - Error al borrar el producto
+[2025-01-02T13:43:07.463] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T13:43:07.479] [ERROR] default - Error al obtener el producto
+[2025-01-02T13:43:07.495] [ERROR] default - Error al borrar el producto
+[2025-01-02T13:46:27.679] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T13:46:27.694] [ERROR] default - Error al obtener el producto
+[2025-01-02T13:46:27.714] [ERROR] default - Error al borrar el producto
+[2025-01-02T14:01:31.557] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T14:01:31.568] [ERROR] default - Error al obtener el producto
+[2025-01-02T14:01:31.585] [ERROR] default - Error al borrar el producto
+[2025-01-02T14:02:59.249] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T14:02:59.308] [INFO] default - Producto obtenido con éxito
+[2025-01-02T14:02:59.421] [INFO] default - Producto borrado con éxito
+[2025-01-02T14:13:58.531] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T14:13:58.594] [INFO] default - Producto obtenido con éxito
+[2025-01-02T14:13:58.711] [INFO] default - Producto borrado con éxito
+[2025-01-02T14:15:51.952] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T14:15:52.028] [INFO] default - Producto obtenido con éxito
+[2025-01-02T14:15:52.148] [INFO] default - Producto borrado con éxito
+[2025-01-02T14:17:03.753] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T14:17:03.812] [INFO] default - Producto obtenido con éxito
+[2025-01-02T14:17:03.872] [INFO] default - Producto actualizado con éxito
+[2025-01-02T14:17:03.983] [INFO] default - Producto borrado con éxito
+[2025-01-02T14:22:04.521] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T14:22:04.578] [INFO] default - Producto obtenido con éxito
+[2025-01-02T14:22:04.638] [INFO] default - Producto actualizado con éxito
+[2025-01-02T14:22:04.750] [INFO] default - Producto borrado con éxito
+[2025-01-02T14:23:40.190] [INFO] default - Producto creado con éxito
+[2025-01-02T14:23:40.283] [INFO] default - Productos obtenidos con éxito
+[2025-01-02T14:23:40.346] [INFO] default - Producto obtenido con éxito
+[2025-01-02T14:23:40.409] [INFO] default - Producto actualizado con éxito
+[2025-01-02T14:23:40.522] [INFO] default - Producto borrado con éxito

@@ -1,6 +1,6 @@
-import {Router} from 'express';
-import sessionsController from "../controllers/sessions.controller.js";
+import { Router } from 'express';
 import { passportCall } from '../passport/passportCall.js';
+import sessionsController from "../controllers/sessions.controller.js";
 
 const router = Router();
    

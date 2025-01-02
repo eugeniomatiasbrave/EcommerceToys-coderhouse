@@ -29,13 +29,16 @@ const getProductById = async (req,res,next) => {
     }
 };
 
-const createProduct = async (req,res,next) => {
-    const { title, description, price, code, stock, category } = req.body;
-
-// Validar campos requeridos
-if (!title || !description || !price || !code || !stock || !category) {
+const createProduct = async (req,res) => {
+    const { title, description, price, code, stock, category  } = req.body;
+    
+    console.log('body-controller:', req.body);
+    // Validar campos requeridos
+    if (!title || !description || !price || !code || !stock || !category) {
     return res.status(400).json({ message: "Todos los campos son obligatorios" });
-}
+   } 
+
+   //console.log('campos-controller:', title, description, price, code, stock, category);
 
     try {
         const newProduct = {
@@ -49,11 +52,10 @@ if (!title || !description || !price || !code || !stock || !category) {
             slug: `${title}_${makeid(4)}`, // no requerido en el body
             thumbnails: []  // no requerido en el body
         };
-        
-            for (let i = 0; i < req.files.length; i++) {
+
+        for (let i = 0; i < req.files.length; i++) {
                 newProduct.thumbnails.push({ maintype: req.files[i].mimetype, path: `/files/products/${req.files[i].filename}`, main: i == 0 });
-            }
-       
+        }
         const result = await productsService.createProduct(newProduct);
         if(!result) throw new BadRequestError("No se pudo crear el producto");
         logger.info("Producto creado con éxito"); // uso de logger
