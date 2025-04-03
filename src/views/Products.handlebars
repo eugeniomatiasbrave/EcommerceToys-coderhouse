@@ -1,26 +1,37 @@
 <!--vista de productos-->
 {{#if products}}
-<h1 class="text-3xl font-bold text-center my-6">Lista de Productos</h1>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 w-2/3">
+<div class="container mx-auto p-6 bg-blue-200 rounded-lg shadow-xl mt-10">
+  <h1 class="mb-6 text-center text-5xl font-bold tracking-tight text-blue-800">
+   Bienvenido a la Página de Productos
+  </h1>
+  <p class="text-xl text-center tracking-tight text-blue-800 mb-6">
+    Aquí encontrarás una lista de todos los productos disponibles en nuestra tienda.
+  </p>
+</div>	
+<div class="container mx-auto p-6 rounded-lg mt-10">
+  <h1 class="text-3xl font-bold text-center my-6 text-blue-800">Lista de Productos</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
   {{#each products}}
-  <div class="card shadow-lg compact bg-base-100 w-2/3 border border-white">
-    <div class="card-body">
-      <h2 class="card-title">{{this.title}}</h2>
-      <p>{{this._id}}</p>
-      <p>{{this.description}}</p>
-      <p>Código: {{this.code}}</p>
-      <p>Precio: ${{this.price}}</p>
-      <p>Status: {{this.status}}</p>
-      <p>Stock: {{this.stock}}</p>
-      <p>Categoría: {{this.category}}</p>
-      <div class="flex flex-wrap gap-2">
+  <div class="card shadow-lg compact bg-white border border-gray-300 rounded-lg hover:shadow-xl transition-shadow duration-300">
+    <div class="card-body p-6">
+      <h1 class="card-title text-4xl font-bold text-blue-800 mb-4">{{this.title}}</h1>
+      <p class="text-gray-800 mb-2"><strong class="text-blue-800">ID:</strong> {{this._id}}</p>
+      <p class="text-gray-800 mb-2"><strong class="text-blue-800">Descripción:</strong> {{this.description}}</p>
+      <p class="text-gray-800 mb-2"><strong class="text-blue-800">Código:</strong> {{this.code}}</p>
+      <p class="text-gray-800 mb-2"><strong class="text-blue-800">Precio:</strong> ${{this.price}}</p>
+      <p class="text-gray-800 mb-2"><strong class="text-blue-800">Status:</strong> {{this.status}}</p>
+      <p class="text-gray-800 mb-2"><strong class="text-blue-800">Stock:</strong> {{this.stock}}</p>
+      <p class="text-gray-800 mb-4"><strong class="text-blue-800">Categoría:</strong> {{this.category}}</p>
+      <div class="flex flex-wrap gap-2 mb-4">
         {{#each this.thumbnails}}
-          <img src="{{this.path}}" class="w-32 h-32 object-cover rounded-lg">
+          <img src="{{this.path}}" class="w-32 h-32 object-cover rounded-lg border border-gray-300">
         {{/each}}
       </div>
-      <div class="card-actions justify-end mt-4">
+      <div class="card-actions justify-end">
         <a href="http://localhost:8080/detail/{{this._id}}">
-          <button class="btn btn-primary">Ver Detalle</button>
+          <button class="w-full rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+            Ver Detalle
+          </button>
         </a>
       </div>
     </div>
@@ -32,16 +43,19 @@
 <div class="flex justify-center mt-6">
   {{#if hasPrevPage}}
     <a href="http://localhost:8080/products?page={{prevPage}}">
-      <button class="btn btn-outline">Anterior</button>
+      <button class="btn btn-outline border-green-500 text-green-500 hover:bg-green-500 hover:text-white">Anterior</button>
     </a>
   {{/if}}
-  <h4 class="mx-4">{{page}}</h4>
+  <h4 class="mx-4 text-lg font-semibold text-gray-700">Página {{page}}</h4>
   {{#if hasNextPage}}
     <a href="http://localhost:8080/products?page={{nextPage}}">
-      <button class="btn btn-outline">Siguiente</button>
+      <button class="btn btn-outline border-green-500 text-green-500 hover:bg-green-500 hover:text-white">Siguiente</button>
     </a>
   {{/if}}
 </div>
 {{else}}
-<h1 class="text-3xl font-bold text-center my-6">No hay lista de productos en este momento</h1>
+<div class="container mx-auto p-6 bg-gradient-to-r from-red-100 via-red-200 to-red-300 rounded-lg shadow-xl mt-10">
+  <h1 class="text-3xl font-bold text-center text-red-800">No hay lista de productos en este momento</h1>
+</div>
 {{/if}}
+</div>

@@ -3,6 +3,10 @@ import { makeid } from "../utils.js";
 import { BadRequestError } from '../utils/custom.error.js'; 
 import httpResponse from '../utils/http.response.js';
 import logger from '../../logs/app.logs.js';
+import fs from 'fs'; // para eliminar archivos
+import __dirname from "../utils.js";
+
+
 
 const getProducts = async (req,res,next) => {
     try {
@@ -66,17 +70,42 @@ const createProduct = async (req,res) => {
     }
 };
 
-const deleteProduct = async (req,res,next) => {
+const deleteProduct = async (req, res, next) => {
     const pid = req.params.pid;
     try {
+        // Verificar si el producto existe antes de intentar eliminarlo
         const product = await productsService.getProductById(pid);
-        if(!product) throw new BadRequestError("No se encontro producto con ese id");
+        if (!product) throw new BadRequestError("No se encontró producto con ese id");
+
+        // Validar que el producto tenga thumbnails
+        if (!product.thumbnails || product.thumbnails.length === 0) {
+            throw new BadRequestError("El producto no tiene imágenes asociadas para eliminar.");
+        }
+
+       
+        const path = product.thumbnails[0].path; // Obtener el path de la miniatura principal
+        const filePath = `${__dirname}/public${path}`; // Ruta absoluta del archivo
+
+        // Verificar si el archivo existe antes de intentar eliminarlo
+        if (fs.existsSync(filePath)) {
+            fs.unlink(filePath, (err) => {
+                if (err) {
+                    console.error(`Error al eliminar el archivo: ${err}`);
+                } else {
+                    console.log('Archivo eliminado exitosamente');
+                }
+            });
+        } else {
+            console.warn(`El archivo no existe en la ruta: ${filePath}`);
+        }
+
         const deletedProduct = await productsService.deleteProduct(pid);
-        if(!deletedProduct) throw new BadRequestError("No se pudo borrar el producto");
-        logger.info("Producto borrado con éxito"); // uso de logger
+        if (!deletedProduct) throw new BadRequestError("No se pudo borrar el producto");
+
+        logger.info("Producto borrado con éxito"); // Uso de logger
         httpResponse.Success(res, deletedProduct);
     } catch (error) {
-        logger.error("Error al borrar el producto");
+        logger.error("Error al borrar el producto:", error);
         next(error);
     }
 };

@@ -174,3 +174,28 @@
 [2025-01-02T14:23:40.346] [INFO] default - Producto obtenido con éxito
 [2025-01-02T14:23:40.409] [INFO] default - Producto actualizado con éxito
 [2025-01-02T14:23:40.522] [INFO] default - Producto borrado con éxito
+[2025-04-02T17:53:43.736] [INFO] default - Producto borrado con éxito
+[2025-04-02T17:55:07.210] [INFO] default - Producto creado con éxito
+[2025-04-02T18:10:11.960] [INFO] default - Producto borrado con éxito
+[2025-04-03T16:28:09.712] [INFO] default - Producto creado con éxito
+[2025-04-03T16:28:30.418] [ERROR] default - Error al borrar el producto
+[2025-04-03T16:31:07.405] [ERROR] default - Error al borrar el producto
+[2025-04-03T16:38:40.624] [ERROR] default - Error al borrar el producto
+[2025-04-03T16:38:46.378] [ERROR] default - Error al borrar el producto
+[2025-04-03T16:42:31.911] [INFO] default - Producto borrado con éxito
+[2025-04-03T16:49:13.896] [INFO] default - Producto creado con éxito
+[2025-04-03T16:49:17.754] [ERROR] default - Error al borrar el producto
+[2025-04-03T16:50:46.331] [INFO] default - Producto creado con éxito
+[2025-04-03T16:50:49.509] [INFO] default - Producto borrado con éxito
+[2025-04-03T17:07:44.105] [INFO] default - Producto creado con éxito
+[2025-04-03T17:07:50.285] [ERROR] default - Error al borrar el producto
+[2025-04-03T17:09:27.029] [ERROR] default - Error al borrar el producto
+[2025-04-03T17:12:44.291] [ERROR] default - Error al borrar el producto
+[2025-04-03T17:13:11.355] [ERROR] default - Error al borrar el producto
+[2025-04-03T17:13:57.149] [ERROR] default - Error al borrar el producto
+[2025-04-03T17:14:55.669] [INFO] default - Producto borrado con éxito
+[2025-04-03T17:20:23.108] [INFO] default - Producto creado con éxito
+[2025-04-03T17:20:32.888] [ERROR] default - Error al borrar el producto
+[2025-04-03T17:29:12.344] [ERROR] default - Error al borrar el producto: ReferenceError: require is not defined
+    at deleteProduct (file:///C:/Users/eugen/OneDrive/Desktop/PROGRAM_WEB/EntregaFinalBack70105/src/controllers/products.controller.js:83:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)

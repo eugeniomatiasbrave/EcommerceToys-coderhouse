@@ -1,40 +1,30 @@
-<div class="w-1/3 mx-auto mt-10">
-    <h1 class="title text-3xl font-bold mb-4">Registro</h1>
-    <form id="registerForm" class="space-y-4">
-        <div class="form-control">
-            <label class="label">
-                <span class="label-text">Nombre</span>
-            </label>
-            <input name="firstName" class="input input-bordered">
-        </div>
-        <div class="form-control">
-            <label class="label">
-                <span class="label-text">Apellido</span>
-            </label>
-            <input name="lastName" class="input input-bordered">
-        </div>
-        <div class="form-control">
-            <label class="label">
-                <span class="label-text">Email</span>
-            </label>
-            <input name="email" class="input input-bordered">
-        </div>
-        <div class="form-control">
-            <label class="label">
-                <span class="label-text">Fecha de nacimiento</span>
-            </label>
-            <input type="date" name="birthDate" class="input input-bordered">
-        </div>
-        <div class="form-control">
-            <label class="label">
-                <span class="label-text">Contraseña</span>
-            </label>
-            <input name="password" class="input input-bordered">
-        </div>
-        <div class="form-control mt-6">
-            <input type="submit" class="btn btn-primary">
-        </div>
-    </form>
+<div class="w-full max-w-md mx-auto mt-10 p-6 border border-gray-300 rounded-lg shadow-xl">
+  <h1 class="mb-6 text-center text-4xl font-bold tracking-tight text-blue-700">Registro</h1>
+  <form id="registerForm" class="space-y-6">
+    <div class="form-control">
+      <label for="firstName" class="block text-sm/6 font-medium text-gray-900">Nombre</label>
+      <input name="firstName" id="firstName" class="block w-full border border-gray-300 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+    </div>
+    <div class="form-control">
+      <label for="lastName" class="block text-sm/6 font-medium text-gray-900">Apellido</label>
+      <input name="lastName" id="lastName" class="block w-full border border-gray-300 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+    </div>
+    <div class="form-control">
+      <label for="email" class="block text-sm/6 font-medium text-gray-900">Email</label>
+      <input name="email" id="email" type="email" class="block w-full border border-gray-300 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+    </div>
+    <div class="form-control">
+      <label for="birthDate" class="block text-sm/6 font-medium text-gray-900">Fecha de nacimiento</label>
+      <input type="date" name="birthDate" id="birthDate" class="block w-full border border-gray-300 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+    </div>
+    <div class="form-control">
+      <label for="password" class="block text-sm/6 font-medium text-gray-900">Contraseña</label>
+      <input name="password" id="password" type="password" class="block w-full border border-gray-300 rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+    </div>
+    <div class="form-control mt-6">
+      <input type="submit" value="Registrarse" class="w-full rounded-md bg-blue-700 px-3 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
+    </div>
+  </form>
 </div>
 
 <script src="/js/register.js"></script>
