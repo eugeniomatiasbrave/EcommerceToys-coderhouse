@@ -16,4 +16,8 @@ export default {
 	mocks: {
 		MOCKS: process.env.PASSWORD_MOCKS,
 	},
+	mailer:{
+        USER: process.env.MAILER_USER,
+        PASSWORD: process.env.MAILER_PASSWORD
+    }
 };

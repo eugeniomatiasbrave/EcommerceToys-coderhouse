@@ -1,40 +1,19 @@
 import jwt from 'jsonwebtoken';
 import PresentUserDTO from '../dto/PresentUserDTO.js';
-import { usersService} from "../services/repositories.js";
-import AuthService from "../services/AuthService.js";
+import MailingService from '../services/MailingService.js';
 
 const SECRET_KEY = process.env.SECRET_KEY;
-const ADMIN_USER = process.env.ADMIN_USER;
-const ADMIN_PWD = process.env.ADMIN_PWD;
 
 const register = async (req, res) => {
-    try {
-        const { email, password, firstName, lastName, birthDate } = req.body;
-        //console.log('body',req.body);
+    
+  const mailingService = new MailingService();
+  try {
 
-        if (!email || !password || !firstName || !lastName || !birthDate) {  // Validaciones de los campos
-            return res.status(400).send({ message: "Todos los campos son obligatorios" });
-        }
-
-        let role = 'user';
-        if (email === ADMIN_USER && password === ADMIN_PWD) {
-            role = 'admin';
-        }
-
-        const authService = new AuthService();
-        const hashedPassword = await authService.hashPassword(password);
-
-        const newUser = {
-            firstName,
-            lastName,
-            email,
-            birthDate,
-            password: hashedPassword,
-            role,
-            cartId: null
-        };
-       
-        await usersService.createUser(newUser);
+    const { email, firstName } = req.body;
+    
+    const result = await mailingService.sendMail({ email, firstName });
+      console.log(result);
+        
         res.send("Registered");
     } catch (error) {
         res.status(500).send({ message: "Error al registrar el usuario", error: error.message });

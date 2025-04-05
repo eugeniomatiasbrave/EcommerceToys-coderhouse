@@ -11,20 +11,25 @@ const ADMIN_USER = process.env.ADMIN_USER;
 const ADMIN_PWD = process.env.ADMIN_PWD;
 
 const initializePassportConfig = () => {
-    passport.use('register', new LocalStrategy({usernameField: 'email',passReqToCallback: true
-    }, async (req, email, password, done) => {
+    passport.use(
+        'register', 
+        new LocalStrategy(
+        {usernameField: 'email',passReqToCallback: true }, 
+        async (req, email, password, done) => {
         try {
-            const { firstName, lastName, birthDate } = req.body;
+            const { firstName, lastName, birthDate} = req.body;
             if (!firstName || !lastName) {return done(null, false, { message: 'Incomplete values' });}
             const user = await usersService.getUserByEmail(email);
             if (user) {return done(null, false, { message: "User already exists" });}
             let parsedDate;
             if (birthDate) {parsedDate = new Date(birthDate).toISOString();}
+
             const authService = new AuthService();
             const hashedPassword = await authService.hashPassword(password);
             let role = 'user';
             if (email === ADMIN_USER && password === ADMIN_PWD) {role = 'admin';}
             const newCart = await cartsService.createCart();
+            
             const newUser = {firstName,lastName,email,birthDate: parsedDate,password: hashedPassword,role,cartId: newCart._id};
             const result = await usersService.createUser(newUser);
             if (result) {await usersService.updateUser(result._id, { cartId: newCart._id });}
@@ -35,6 +40,7 @@ const initializePassportConfig = () => {
             return done(error);
         }
     }));
+
 
     passport.use('login', new LocalStrategy({ usernameField: 'email'}, async (email, password, done) => {
         try {

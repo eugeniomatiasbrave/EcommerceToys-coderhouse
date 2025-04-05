@@ -1,11 +1,6 @@
 import { usersService} from "../services/repositories.js";
 import AuthService from "../services/AuthService.js";
-import config from '../config/config.js';
 
-const ADMIN_USER = config.app.ADMIN_USER;
-const ADMIN_PWD = config.app.ADMIN_PWD;
-
-const authService = new AuthService();
 
 const getUsers = async (req, res) => {
     try {
@@ -40,6 +35,8 @@ const createUser = async (req, res) => {
         if (email === ADMIN_USER && password === ADMIN_PWD) {
             role = 'admin';
         }
+
+        const authService = new AuthService();
 
         const hashedPassword = await authService.hashPassword(password);
 

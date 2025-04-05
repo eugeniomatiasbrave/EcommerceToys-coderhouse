@@ -199,3 +199,5 @@
 [2025-04-03T17:29:12.344] [ERROR] default - Error al borrar el producto: ReferenceError: require is not defined
     at deleteProduct (file:///C:/Users/eugen/OneDrive/Desktop/PROGRAM_WEB/EntregaFinalBack70105/src/controllers/products.controller.js:83:20)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2025-04-03T17:33:09.110] [INFO] default - Producto borrado con éxito
+[2025-04-03T17:47:24.100] [INFO] default - Producto creado con éxito
