@@ -46,13 +46,19 @@ export default class CartDAO {
         );
     }
 
-    //metodo para vaciar el carrito con mongodb
+    //metodo para vaciar los productos del carrito con mongodb
     clean(clean) {
         return cartModel.updateOne(
             { _id: clean.cid },
             { $set: { products: [] } }
         );
       }
+
+    // Metodo para eliminar el carrito
+
+    deleteCart(cid) { //elimina el carrito
+        return cartModel.deleteOne({ _id: cid });
+    }
 
 
 // Metodo para actualizar la cantidad del producto

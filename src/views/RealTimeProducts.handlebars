@@ -67,18 +67,19 @@
   <div class="card shadow-lg compact w-2/3 border border-gray-400 rounded-lg hover:shadow-xl transition-shadow duration-300">
     <div class="card-body">
       <h2 class="card-title text-blue-800">{{this.title}}</h2>
-      <p class="text-gray-800"><strong>ID:</strong> {{this._id}}</p>
-      <p class="text-gray-800"><strong>Descripción:</strong> {{this.description}}</p>
-      <p class="text-gray-800"><strong>Categoría:</strong> {{this.category}}</p>
-      <p class="text-gray-800"><strong>Código:</strong> {{this.code}}</p>
-      <p class="text-gray-800"><strong>Estado:</strong> {{this.status}}</p>
-      <p class="text-gray-800"><strong>Precio:</strong> ${{this.price}}</p>
-      <p class="text-gray-800"><strong>Stock:</strong> {{this.stock}}</p>
       <div class="flex flex-wrap gap-2">
         {{#each this.thumbnails}}
           <img src="{{this.path}}" class="w-32 h-32 object-cover rounded-lg">
         {{/each}}
       </div>
+      <!--<p class="text-gray-800"><strong>ID:</strong> {{this._id}}</p>-->
+      <p class="text-gray-800"><strong>Descripción:</strong> {{this.description}}</p>
+      <p class="text-gray-800"><strong>Categoría:</strong> {{this.category}}</p>
+      <p class="text-gray-800"><strong>Código:</strong> {{this.code}}</p>
+      <!--<p class="text-gray-800"><strong>Estado:</strong> {{this.status}}</p>-->
+      <p class="text-gray-800"><strong>Precio:</strong> ${{this.price}}</p>
+      <p class="text-gray-800"><strong>Stock:</strong> {{this.stock}}</p>
+      
       <div class="card-actions justify-end">
         <button class="rounded-md bg-red-600 text-sm font-semibold px-3 py-2 delete-product" data-pid="{{this._id}}">Eliminar</button>
       </div>

@@ -93,6 +93,24 @@ const clean = {
   }
 };
 
+//router.delete('/:cid', passportCall('current'), roleAuth(['user']), cartsController.deleteCart);// Solo el usuario que tiene el carrito puede eliminarlo.
+// Falta implementar el deleteCart en el service y en el repository
+const deleteCart = async (req, res) => {
+  const { cid } = req.params; // Obtener el ID del carrito desde los parámetros de la solicitud
+  try {
+    const result = await cartsService.deleteCart(cid);// Llamar al servicio para eliminar el carrito
+    if (result.deletedCount === 0) { // Verificar si se eliminó algún carrito
+      return res.status(404).send({ status: "error", error: 'Carrito no encontrado' }); // Si no se eliminó ningún carrito, enviar un error 404
+    }
+    res.send({ status: "success", message: 'Carrito eliminado' });// Enviar una respuesta de éxito si se eliminó el carrito
+  }
+  catch (error) {
+    console.error('Error al eliminar el carrito:', error);
+    res.status(500).send({ status: "error", error: 'Error al eliminar el carrito' });
+  }
+};
+
+
 const updateProductQuantity = async (req, res) => {
   try {
       const { cid, pid } = req.params;
@@ -173,7 +191,8 @@ export default {
 	deleteProductCart,
 	cleanToCart,
 	updateProductQuantity,
-  purchaseCart
+  purchaseCart,
+  deleteCart
 };
 
 

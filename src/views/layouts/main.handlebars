@@ -13,22 +13,31 @@
     />
     <title>{{title}}</title>
   </head>
-  <nav class="navbar bg-blue-700 border-b border-gray-700">
-    <div class="flex-1">
-      <a href="/" class="btn btn-ghost normal-case text-3xl text-white font-extrabold">Jugetería Toys</a>
-    </div>
-    <div class="flex space-x-4">
-      <a href="http://localhost:8080/" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Inicio</a>
-      <a href="http://localhost:8080/products" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Productos</a>
-      <a href="http://localhost:8080/realTimeProducts" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Crear Productos</a>
-      <a href="http://localhost:8080/login" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Iniciar Sesión</a>
-      <a href="http://localhost:8080/register" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Registrate</a>
-      <a href="http://localhost:8080/profile" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Perfil</a>
-      <a href="http://localhost:8080/carts" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Carrito</a>
-    </div>
-  </nav>
+  <body class="flex flex-col min-h-screen bg-white">
+    <nav class="navbar bg-blue-700 border-b border-gray-700">
+      <div class="flex-1">
+        <a href="/" class="btn btn-ghost normal-case text-3xl text-white font-extrabold">Juguetería Toys</a>
+      </div>
+      <div class="flex space-x-4">
+        <a href="http://localhost:8080/" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Inicio</a>
+        <a href="http://localhost:8080/products" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Productos</a>
+        <a href="http://localhost:8080/realTimeProducts" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Crear Productos</a>
+        <a href="http://localhost:8080/login" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Iniciar Sesión</a>
+        <a href="http://localhost:8080/register" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Registrate</a>
+        <a href="http://localhost:8080/profile" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Perfil</a>
+        <a href="http://localhost:8080/carts" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Carrito</a>
+        <a href="http://localhost:8080/api/sessions/logout" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Cerrar Sesión</a>
+      </div>
+    </nav>
 
-  <body class="bg-white mx-auto rounded-lg shadow-lg">
+    <main class="flex-grow">
       {{{body}}}
+    </main>
+
+    <footer class="bg-blue-700 text-white py-4">
+      <div class="container mx-auto text-center">
+        <p>&copy; 2023 Juguetería Toys. Todos los derechos reservados.</p>
+      </div>
+    </footer>
   </body>
 </html>

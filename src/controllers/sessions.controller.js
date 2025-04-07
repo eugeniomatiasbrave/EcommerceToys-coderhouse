@@ -34,6 +34,7 @@ const current = (req,res)=>{ //el proposito es obtener y devolver informacion de
     res.send(currentUser.toObject()); // convierto a currentUser en un objeto plano
 }
 
+
 const logout = (req,res)=>{ 
 	res.clearCookie('tokencito').redirect('/');
 }

@@ -1,42 +1,23 @@
 <!--vista de productos-->
 {{#if products}}
-<div class="container mx-auto p-6 bg-blue-200 rounded-lg shadow-xl mt-10">
-  <h1 class="mb-6 text-center text-5xl font-bold tracking-tight text-blue-800">
-   Bienvenido a la Página de Productos
-  </h1>
-  <p class="text-xl text-center tracking-tight text-blue-800 mb-6">
-    Aquí encontrarás una lista de todos los productos disponibles en nuestra tienda.
-  </p>
-</div>	
-<div class="container mx-auto p-6 rounded-lg mt-10">
-  <h1 class="text-3xl font-bold text-center my-6 text-blue-800">Lista de Productos</h1>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
-  {{#each products}}
-  <div class="card shadow-lg compact bg-white border border-gray-300 rounded-lg hover:shadow-xl transition-shadow duration-300">
-    <div class="card-body p-6">
-      <h1 class="card-title text-4xl font-bold text-blue-800 mb-4">{{this.title}}</h1>
-      <p class="text-gray-800 mb-2"><strong class="text-blue-800">ID:</strong> {{this._id}}</p>
-      <p class="text-gray-800 mb-2"><strong class="text-blue-800">Descripción:</strong> {{this.description}}</p>
-      <p class="text-gray-800 mb-2"><strong class="text-blue-800">Código:</strong> {{this.code}}</p>
-      <p class="text-gray-800 mb-2"><strong class="text-blue-800">Precio:</strong> ${{this.price}}</p>
-      <p class="text-gray-800 mb-2"><strong class="text-blue-800">Status:</strong> {{this.status}}</p>
-      <p class="text-gray-800 mb-2"><strong class="text-blue-800">Stock:</strong> {{this.stock}}</p>
-      <p class="text-gray-800 mb-4"><strong class="text-blue-800">Categoría:</strong> {{this.category}}</p>
-      <div class="flex flex-wrap gap-2 mb-4">
-        {{#each this.thumbnails}}
-          <img src="{{this.path}}" class="w-32 h-32 object-cover rounded-lg border border-gray-300">
-        {{/each}}
-      </div>
-      <div class="card-actions justify-end">
-        <a href="http://localhost:8080/detail/{{this._id}}">
-          <button class="w-full rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-            Ver Detalle
-          </button>
-        </a>
-      </div>
+	
+<div class="bg-white ">
+  
+  <div class="mt-20 border border-gray-300 rounded-lg mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-15 lg:max-w-7xl lg:px-8">
+    <div class="mx-auto max-w-2xl lg:mx-0">
+      <h2 class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">Lista de Productos</h2>
+      <p class="mt-2 text-lg/8 text-gray-600">Descubre todos los productos disponibles en nuestra tienda.</p>
+    </div>
+    <div class="border-t border-gray-200 pt-10 px-5 my-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+      {{#each products}}
+      <a href="http://localhost:8080/detail/{{this._id}}" class="group shadow-lg p-5">
+      <img src="{{this.thumbnails.[0].path}}" alt="{{this.description}}" class="h-56 w-56  rounded-lg bg-gray-200 object-cover group-hover:opacity-75">  
+        <h3 class="mt-4 text-sm text-gray-700">{{this.title}}</h3>
+        <p class="mt-1 text-lg font-medium text-gray-900">${{this.price}}</p>
+      </a>
+      {{/each}}
     </div>
   </div>
-  {{/each}}
 </div>
 
 <!--paginado-->
@@ -58,4 +39,3 @@
   <h1 class="text-3xl font-bold text-center text-red-800">No hay lista de productos en este momento</h1>
 </div>
 {{/if}}
-</div>

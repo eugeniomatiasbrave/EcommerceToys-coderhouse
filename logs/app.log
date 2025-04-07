@@ -201,3 +201,10 @@
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
 [2025-04-03T17:33:09.110] [INFO] default - Producto borrado con éxito
 [2025-04-03T17:47:24.100] [INFO] default - Producto creado con éxito
+[2025-04-06T14:42:25.898] [INFO] default - Producto borrado con éxito
+[2025-04-06T14:48:31.152] [INFO] default - Producto creado con éxito
+[2025-04-06T14:51:32.748] [INFO] default - Producto borrado con éxito
+[2025-04-06T14:53:40.595] [INFO] default - Producto creado con éxito
+[2025-04-06T14:56:27.062] [INFO] default - Producto creado con éxito
+[2025-04-06T14:59:09.380] [INFO] default - Producto creado con éxito
+[2025-04-06T15:01:24.044] [INFO] default - Producto creado con éxito

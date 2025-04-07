@@ -1,36 +1,67 @@
 
+  
+<div class=" flex w-full transform text-left text-base transition md:my-8 md:max-w-2xl md:px-4 lg:max-w-4xl mx-auto">
+  <div class=" mt-32 flex w-full items-center overflow-hidden bg-white px-4 pt-14 pb-8 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8 rounded-lg">
 
-<h1>Detalle del Producto</h1>
+    <div class="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
+      <!-- Columna izquierda: Imagen -->
+      <div class="sm:col-span-4 lg:col-span-5 border-r border-gray-200 pr-7 lg:pr-8">
+        {{#each product.thumbnails}}
+          <img src="{{this.path}}" alt="Imagen del producto" class="aspect-2/3 w-full rounded-lg bg-gray-100 object-cover mb-4">
+        {{/each}}
+      </div>
 
-<div class="card shadow-lg compact bg-base-100 w-1/4 border border-white">
-  {{#each product}}
-    <div class="flex flex-wrap gap-2">
-      {{#each this.thumbnails}}
-        <img src="{{this.path}}" class="w-52 h-52 object-cover rounded-lg">
-      {{/each}}
+      <!-- Columna derecha: Detalles -->
+   <div class="sm:col-span-8 lg:col-span-7">
+  <!-- Título del producto -->
+  <h2 class="text-3xl font-extrabold text-gray-900 sm:pr-12">{{product.title}}</h2>
+
+  <!-- Información del producto -->
+  <section aria-labelledby="information-heading" class="mt-4">
+    <h3 id="information-heading" class="sr-only">Información del producto</h3>
+    <p class="text-2xl font-semibold text-gray-900">${{product.price}}</p>
+    <div class="mt-4 space-y-2 text-gray-800">
+      <p><strong class="text-blue-900">Descripción:</strong> {{product.description}}</p>
+      <p><strong class="text-blue-900">Código:</strong> {{product.code}}</p>
+      <p><strong class="text-blue-900">Estado:</strong> {{product.status}}</p>
+      <p><strong class="text-blue-900">Stock:</strong> {{product.stock}}</p>
+      <p><strong class="text-blue-900">Categoría:</strong> {{product.category}}</p>
     </div>
-    <p>{{this._id}}</p>
-    <p>{{this.title}}</p>
-    <p>{{this.description}}</p>
-    <p>{{this.code}}</p>
-    <p>{{this.price}}</p>
-    <p>{{this.status}}</p>
-    <p>{{this.stock}}</p>
-    <p>{{this.category}}</p>
-  {{/each}}
+  </section>
 
+  <!-- Formulario de opciones -->
+  <section aria-labelledby="options-heading" class="mt-8">
+    <h3 id="options-heading" class="sr-only">Opciones del producto</h3>
+    <form id="form-detail" action="/api/carts/{{cartId}}/product/{{product._id}}" method="POST" class="mt-4">
+      <div class="flex items-center gap-6">
+        <!-- Input de cantidad -->
+        <div class="flex items-center">
+          <label for="quantity" class="sr-only">Cantidad</label>
+          <input 
+            type="number" 
+            name="quantity" 
+            id="quantity" 
+            placeholder="Cantidad" 
+            min="1" 
+            class="border border-gray-300 bg-white rounded-md w-24 text-center text-gray-800 py-2 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+          >
+        </div>
 
-  <form id="form-detail" action="/api/carts/{{cartId}}/product/{{product._id}}" method="POST">
-    <div class="compact bg-base-200 py-2">
-      <label class="label">
-        <span class="label-text">Indicar Cantidad</span>
-      </label>
-      <input type="number" name="quantity" class="input input-bordered" placeholder="Cantidad">
-    </div>
-    <div class="card-actions">
-      <button type="submit" class="btn btn-primary">Agregar al Cart</button>
-    </div>
-  </form>
+        <!-- Botón de envío -->
+        <button 
+          type="submit" 
+          class="inline-flex items-center justify-center rounded-md bg-blue-700 px-6 py-2 text-sm font-semibold text-white shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        >
+          Agregar al Carrito
+        </button>
+      </div>
+    </form>
+  </section>
+   <p class="text-gray-400">_id: {{product._id}}</p>
 </div>
+    </div>
+  </div>
+</div>
+
 
 <script src="/js/details.js"></script>

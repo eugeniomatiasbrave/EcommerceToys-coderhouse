@@ -14,6 +14,7 @@ const renderLogin = (req, res) => {
 
 const renderProfile = (req, res) => {
     const user = req.user;
+    console.log( "renderProfile", user);
     res.render('Profile', {
         user
     });
