@@ -115,13 +115,22 @@ const renderCartById = async (req, res) => { // muestro el carrito del usuario
 };
 
 const renderTicket = async (req, res) => {
-    const ticket = await ticketsService.getTicketBy(req.user._id);
-    const user = req.user || null; // Asegúrate de incluir el usuario
+    const user = req.user || null; // Obtener el usuario autenticado
+    const ticket = await ticketsService.getTicketBy({ purchaser: user.email }); // Buscar el ticket por el correo del usuario
+
+    if (!ticket) {
+        return res.render('Ticket', { 
+            ticket: null, 
+            user, 
+            message: "No hay tickets disponibles, no se ha realizado compra en esta session." 
+        });
+    }
+
     res.render('Ticket', { 
-        ticket,
-        user
+        ticket, 
+        user 
     });
-}
+};
 
 export default {
     renderHome,

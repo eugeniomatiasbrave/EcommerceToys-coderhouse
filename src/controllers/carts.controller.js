@@ -13,7 +13,7 @@ const getCarts = async (req,res) => {  // probada ok
  }
 };
 
-const getCartById = async (req,res) => {
+const getCartById = async (req,res) => { // es 
   const cid = req.params.cid;
     if (!cid) {
        return res.status(400).send({ status: "error", error: 'cid es requerido' });
@@ -130,27 +130,23 @@ const purchaseCart = async (req, res) => {
    const { cid } = req.params;
    const user = req.user; // Obtener el usuario autenticado por req.user
 
-   if (!cid) {
-     return res.status(400).send({ status: "error", error: 'cid es requerido' });
-    }
-   if (!user) {
-      return res.status(404).send({ status: "error", error: 'Usuario no encontrado' });
-    }
+   if (!cid || !user) {
+    return res.status(400).send({ status: "error", error: "Carrito o usuario no encontrado" });
+  }
   
   const purchaserEmail = user.email; // Obtener el correo del usuario autenticado por req.user
   const cart = await cartsService.getCartById(cid);
   
     if (!cart) {
-      return res.status(500).send({ status: "error", error: 'No se encontró el carrito' });
+      return res.status(404).send({ status: "error", error: 'No se encontró el carrito' });
     }
 
-  const productsInCart = cart.products;
+  const productsInCart = cart.products; // Productos en el carrito
   const productsToPurchase = []; // Productos que se pueden comprar
   const insufficientStockProducts = []; // Productos con stock insuficiente
 
   for (const item of productsInCart) {
     const product = await productsService.getProductById(item.product._id);
-
     // Verificar si hay suficiente stock para la cantidad solicitada
     if (product.stock >= item.quantity) {
       product.stock -= item.quantity;
@@ -162,7 +158,7 @@ const purchaseCart = async (req, res) => {
   }
 
   if (productsToPurchase.length === 0) {
-    return res.status(400).send({ status: "error", error: 'No hay productos con stock suficiente para la compra de '+ insufficientStockProducts.length + ' productos' });
+    return res.status(400).send({ status: "error", error: 'No hay productos con stock suficiente para la compra' });
   }
 
   const ticket = {
@@ -171,14 +167,16 @@ const purchaseCart = async (req, res) => {
     amount: productsToPurchase.reduce((total, item) => total + item.product.price * item.quantity, 0),
     purchaser: purchaserEmail
   };
-  const response = await ticketsService.createTicket(ticket);
-  //console.log('response:', response);
-  // Limpiar el carrito falta
+  const createdTicket = await ticketsService.createTicket(ticket);
+  
+  // Actualizar el carrito con los productos que no pudieron comprarse
+  cart.products = insufficientStockProducts;
+  await cartsService.updateCart(cid, cart);
+
   res.send({
     status: "success",
     message: 'Compra realizada con éxito',
-    response,
-    purchasedProducts: productsToPurchase,
+    ticket: createdTicket,
     insufficientStockProducts
   });
 }

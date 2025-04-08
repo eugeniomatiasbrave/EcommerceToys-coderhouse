@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 const result = await response.json();
                 console.log('Compra realizada:', result);
-                window.location.reload(); // Recargar la página para actualizar la vista del carrito
+                window.location.href = '/ticket'; // Redirigir a la vista del ticket
             } else {
                 console.error('Error al realizar la compra:', response.statusText);
             }
@@ -81,3 +81,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+

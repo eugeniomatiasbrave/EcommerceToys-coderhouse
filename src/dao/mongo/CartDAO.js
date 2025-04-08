@@ -55,19 +55,20 @@ export default class CartDAO {
       }
 
     // Metodo para eliminar el carrito
-
-    deleteCart(cid) { //elimina el carrito
+    deleteCart(cid) { 
         return cartModel.deleteOne({ _id: cid });
     }
 
+    updateCart(cid, updatedCart) {
+        return cartModel.updateOne({ _id: cid }, { $set: { products: updatedCart.products } });
+    }
 
-// Metodo para actualizar la cantidad del producto
-updateQuantity({ cid, pid, quantity }) {
-    return cartModel.updateOne(
+    // Metodo para actualizar la cantidad del producto
+    updateQuantity({ cid, pid, quantity }) {
+        return cartModel.updateOne(
         { _id: cid, "products.product": pid },
-        { $set: { "products.$.quantity": quantity } }
-    );
-}
+        { $set: { "products.$.quantity": quantity } });
+    }
 
 }
   
