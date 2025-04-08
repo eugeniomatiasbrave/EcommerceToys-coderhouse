@@ -6,16 +6,16 @@ import { roleAuth } from '../middlewares/roleAuth.js';
 
 const router = Router();
 
-router.get('/', viewsController.renderHome);
-router.get('/register', viewsController.renderRegister);
-router.get('/login', viewsController.renderLogin);
-router.get('/logout', sessionsController.logout);
+router.get('/', passportCall('current'), viewsController.renderHome);
+router.get('/register', passportCall('current'), viewsController.renderRegister);
+router.get('/login', passportCall('current'), viewsController.renderLogin);
+router.get('/logout', passportCall('current'), sessionsController.logout);
 router.get('/profile', passportCall('current'), viewsController.renderProfile);
-router.get('/products', viewsController.renderProducts);
+router.get('/products', passportCall('current'), roleAuth(['user','admin']),viewsController.renderProducts);
 router.get("/realtimeproducts", passportCall('current'), roleAuth(['admin']), viewsController.renderRealTimeProducts);
-router.get('/carts', passportCall('current'), viewsController.renderCartById);
-router.get('/detail/:pid', viewsController.renderProductDetail);
-router.get('/ticket', passportCall('current'), viewsController.renderTicket);
+router.get('/carts', passportCall('current'), roleAuth(['user']),viewsController.renderCartById);
+router.get('/detail/:pid', passportCall('current'),viewsController.renderProductDetail);
+router.get('/ticket', passportCall('current'), roleAuth(['user']), viewsController.renderTicket);
 
 export default router;
        

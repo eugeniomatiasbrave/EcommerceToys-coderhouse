@@ -23,7 +23,7 @@ const register = async (req, res) => {
 const login = async (req,res)=>{ 
 	const sessionUser = new PresentUserDTO(req.user);
 	const token = jwt.sign(sessionUser.toObject(), SECRET_KEY ,{expiresIn:'1h'}); // convierto a sessionUser en un objeto plano
-	res.cookie('tokencito',token).send({ status: "success", message: "Logged in successfully", token }); 
+	res.cookie('tokencito',token , { httpOnly: true }).send({ status: "success", message: "Logged in successfully", token }); 
 }
 
 const current = (req,res)=>{ //el proposito es obtener y devolver informacion del usuario actual que esta autenticado

@@ -33,7 +33,7 @@ const getProductById = async (req,res,next) => {
     }
 };
 
-const createProduct = async (req,res) => {
+const createProduct = async (req,res,next) => {
     const { title, description, price, code, stock, category  } = req.body;
     
     console.log('body-controller:', req.body);

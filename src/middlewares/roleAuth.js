@@ -1,12 +1,12 @@
 
-export const roleAuth = (role) => {
+export const roleAuth = (roles) => {
     return (req, res, next) => {
         if (!req.user) {
-            return res.status(401).json({ error: 'Unauthorized' });
+            return res.redirect('/login'); // Redirigir al login si no está autenticado
         }
-        if (role.includes(req.user.role)) {
-            return next();
+        if (roles.includes(req.user.role)) {
+            return next(); // Usuario autorizado
         }
-        return res.status(403).json({ error: 'Forbidden' });
+        return res.status(403).render('Unauthorized'); // Redirigir a una página de acceso denegado
     };
 };

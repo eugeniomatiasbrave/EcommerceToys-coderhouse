@@ -14,20 +14,33 @@
     <title>{{title}}</title>
   </head>
   <body class="flex flex-col min-h-screen bg-white">
-    <nav class="navbar bg-blue-700 border-b border-gray-700">
+     <nav class="navbar bg-blue-700 border-b border-gray-700">
       <div class="flex-1">
         <a href="/" class="btn btn-ghost normal-case text-3xl text-white font-extrabold">Juguetería Toys</a>
       </div>
+       <div class="flex-1">
+      <!-- <p class="text-white font-semibold">Role: {{user.role}}</p> -->
+        <p class="text-white ">Hola, bienvenido a Toy`s {{user.firstName}}!!</p>
+      </div>
       <div class="flex space-x-4">
         <a href="http://localhost:8080/" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Inicio</a>
-        <a href="http://localhost:8080/products" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Productos</a>
-        <a href="http://localhost:8080/realTimeProducts" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Crear Productos</a>
-        <a href="http://localhost:8080/login" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Iniciar Sesión</a>
-        <a href="http://localhost:8080/register" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Registrate</a>
-        <a href="http://localhost:8080/profile" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Perfil</a>
-        <a href="http://localhost:8080/carts" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Carrito</a>
-        <a href="http://localhost:8080/api/sessions/logout" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Cerrar Sesión</a>
+        {{#if user}}
+          {{#if (eq user.role "admin")}}
+            <a href="http://localhost:8080/products" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Productos</a>
+            <a href="http://localhost:8080/realTimeProducts" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Crear Productos</a>
+          {{/if}}
+          {{#if (eq user.role "user")}}
+            <a href="http://localhost:8080/products" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Productos</a>
+            <a href="http://localhost:8080/profile" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Perfil</a>
+            <a href="http://localhost:8080/carts" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Carrito</a>
+          {{/if}}
+          <a href="http://localhost:8080/api/sessions/logout" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Cerrar Sesión</a>
+        {{else}}
+          <a href="http://localhost:8080/login" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Iniciar Sesión</a>
+          <a href="http://localhost:8080/register" class="btn btn-ghost text-white font-semibold hover:text-gray-200">Registro</a>
+        {{/if}}
       </div>
+      <!-- Depuración: Mostrar el objeto user -->
     </nav>
 
     <main class="flex-grow">

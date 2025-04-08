@@ -1,20 +1,34 @@
 import {productsService, cartsService, ticketsService } from "../services/repositories.js";
 
+
 const renderHome = (req, res) => {
-    res.render('Home');
+    try {
+        const user = req.user || null; // Asegúrate de que req.user esté definido
+        res.render('Home', { 
+            user 
+        });
+    } catch (error) {
+        console.error('Error en renderHome:', error);
+        res.status(500).send({ status: "error", message: "Ocurrió un error en el servidor" });
+    }
 };
 
 const renderRegister = (req, res) => {
-    res.render('Register');
+    const user = req.user || null; // Asegúrate de incluir el usuario
+    res.render('Register', { 
+        user 
+    });
 };
 
 const renderLogin = (req, res) => {
-    res.render('Login');
+    const user = req.user || null; // Asegúrate de incluir el usuario
+    res.render('Login' , { 
+        user 
+    });
 };
 
 const renderProfile = (req, res) => {
     const user = req.user;
-    console.log( "renderProfile", user);
     res.render('Profile', {
         user
     });
@@ -27,17 +41,15 @@ const renderProducts = async (req, res) => {
     const productsPaginate = await productsService.getProducts(page, limit, sort);
     const products = productsPaginate.docs;
     const { hasPrevPage, hasNextPage, prevPage, nextPage, page: currentPage } = productsPaginate;
-    //console.log(productsPaginate);
-    if (!products) {
-        return res.render('404');
-    }
+    const user = req.user || null; // Asegúrate de incluir el usuario
     res.render("Products", {
         products,
         page: currentPage,
         hasPrevPage,
         hasNextPage,
         prevPage,
-        nextPage
+        nextPage,
+        user // Pasa el usuario a la vista
     });
 };
 
@@ -48,14 +60,15 @@ const renderRealTimeProducts = async (req, res) => {
     const productsPaginate = await productsService.getProducts(page, limit, sort);
     const products = productsPaginate.docs;
     const { hasPrevPage, hasNextPage, prevPage, nextPage, page: currentPage } = productsPaginate;
-    //console.log(productsPaginate);
+    const user = req.user || null; // Asegúrate de incluir el usuario
     res.render("RealTimeProducts", {
         products,
         page: currentPage,
         hasPrevPage,
         hasNextPage,
         prevPage,
-        nextPage
+        nextPage,
+        user // Pasa el usuario a la vista
     });
 };
 
@@ -71,8 +84,14 @@ const renderProductDetail = async (req, res) => {
         return res.status(404).send({ status: "error", error: 'Carrito no encontrado' });
       }
     const cartId = cart._id;
-    //console.log('cart',cart._id)
-    res.render('ProductDetail', { product, cartId });
+    const user = req.user || null; // Asegúrate de incluir el usuario
+
+    res.render('ProductDetail', { 
+        product,
+        cartId,
+        user 
+    });
+
   } catch (error) {
     console.error('Error al obtener el detalle del producto:', error);
     res.status(500).send({ status: "error", error: 'Error al obtener el detalle del producto' });
@@ -83,7 +102,12 @@ const renderCartById = async (req, res) => { // muestro el carrito del usuario
     try {
         const cart = await cartsService.getCartById(req.params.cid);
         const cartId = cart._id;
-        res.render('Cart', { cart , cartId });
+        const user = req.user || null; // Asegúrate de incluir el usuario
+        res.render('Cart', { 
+            cart, 
+            cartId, 
+            user
+        });
     } catch (error) {
         console.error('Error al obtener el carrito:', error);
         res.status(500).send({ status: "error", error: 'Error al obtener el carrito' });
@@ -92,7 +116,11 @@ const renderCartById = async (req, res) => { // muestro el carrito del usuario
 
 const renderTicket = async (req, res) => {
     const ticket = await ticketsService.getTicketBy(req.user._id);
-    res.render('Ticket', { ticket});
+    const user = req.user || null; // Asegúrate de incluir el usuario
+    res.render('Ticket', { 
+        ticket,
+        user
+    });
 }
 
 export default {
@@ -104,5 +132,5 @@ export default {
     renderRealTimeProducts,
     renderProductDetail,
     renderCartById,
-    renderTicket
+    renderTicket,
 };

@@ -1,7 +1,5 @@
 import {Router} from 'express';
 import usersController from "../controllers/users.controller.js";
-//import { passportCall } from '../passport/passportCall.js';
-
 
 const router = Router();
 

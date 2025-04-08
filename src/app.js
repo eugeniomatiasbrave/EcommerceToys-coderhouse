@@ -20,6 +20,7 @@ import { handlerError } from "./middlewares/handler.error.js";
 import { info } from "./docs/info.js";
 import initializePassportConfig from "./passport/jwt.js";
 
+
 const app = express();
 
 const PORT = process.env.PORT || 8080;
@@ -29,6 +30,7 @@ const connection = mongoose.connect(URL);
 
 app.use(cors());
 
+
 // Swagger Configuration
 const specs = swaggerJSDoc(info);
 app.use("/docs", swaggerUI.serve, swaggerUI.setup(specs));
@@ -36,6 +38,7 @@ app.use("/docs", swaggerUI.serve, swaggerUI.setup(specs));
 app.use(helmet()); // Usar helmet para mejorar la seguridad
   
 // Register Handlebars helpers
+
 Handlebars.registerHelper("multiply", (a, b) => a * b);
 Handlebars.registerHelper("calculateTotal", function (products) {
   let total = 0;
@@ -44,6 +47,7 @@ Handlebars.registerHelper("calculateTotal", function (products) {
   });
   return total.toFixed(2); // Formato de dos decimales
 });
+Handlebars.registerHelper("eq", (a, b) => a === b);
 
 // Handlebars Configuration
 const handlebars = exphbs.create({
@@ -53,6 +57,7 @@ const handlebars = exphbs.create({
    allowProtoMethodsByDefault: true,
   },
 });
+
 
   
 app.engine("handlebars", handlebars.engine);
