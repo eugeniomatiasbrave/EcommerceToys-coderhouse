@@ -1,6 +1,9 @@
 
 export default class PresentUserDTO {
     constructor(user) {
+        if (!user) {
+            throw new Error("Usuario no válido para PresentUserDTO");
+        }
         this.id = user._id;
         this.firstName = user.firstName;
         this.lastName = user.lastName;

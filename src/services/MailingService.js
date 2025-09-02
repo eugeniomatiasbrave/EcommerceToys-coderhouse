@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer';
 import config from '../config/config.js';
 
 
-export default class MailingService {
+export default class MailingService { 
 	constructor() {
 		this.mailer = nodemailer.createTransport({
 			service: 'gmail',

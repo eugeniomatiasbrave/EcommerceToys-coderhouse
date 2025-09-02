@@ -21,9 +21,19 @@ const register = async (req, res) => {
 };
 
 const login = async (req,res)=>{ 
-	const sessionUser = new PresentUserDTO(req.user);
-	const token = jwt.sign(sessionUser.toObject(), SECRET_KEY ,{expiresIn:'1h'}); // convierto a sessionUser en un objeto plano
-	res.cookie('tokencito',token , { httpOnly: true }).send({ status: "success", message: "Logged in successfully", token }); 
+	console.log('Login - req.user:', req.user);
+	if (!req.user) {
+		console.log('Login fallido: req.user es null o undefined');
+		return res.status(401).json({ error: "Credenciales inválidas" });
+	}
+	try {
+		const sessionUser = new PresentUserDTO(req.user);
+		const token = jwt.sign(sessionUser.toObject(), SECRET_KEY ,{expiresIn:'1h'}); // convierto a sessionUser en un objeto plano
+		res.cookie('tokencito',token , { httpOnly: true }).send({ status: "success", message: "Logged in successfully", token }); 
+	} catch (error) {
+		console.error('Error creando PresentUserDTO:', error);
+		return res.status(500).json({ error: "Error interno en login" });
+	}
 }
 
 const current = (req,res)=>{ //el proposito es obtener y devolver informacion del usuario actual que esta autenticado
