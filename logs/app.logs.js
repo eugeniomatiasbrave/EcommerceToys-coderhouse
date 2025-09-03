@@ -1,23 +1,35 @@
 import log4js from 'log4js';
 import config from '../src/config/config.js';
 
-log4js.configure({
-    appenders:{
-        fileAppender: {
-            type: 'file', filename: './logs/app.log'
-        },
-        consoleAppender: {
-            type: 'console'
-        }
-    },
-    categories: {
-        default: { appenders: ['fileAppender', 'consoleAppender'], level: 'debug' },
-        stg: { appenders: ['fileAppender'], level: 'info' },
-        prod: { appenders: ['fileAppender'], level: 'trace' }
-    }
-})
+// Detectar si estamos en Vercel o en modo producción
+const isProd = config.app.MODE === 'prod' || process.env.VERCEL === '1' || process.env.VERCEL_ENV;
 
-const logger = log4js.getLogger(config.app.MODE === 'dev' ? 'default' : config.app.MODE);
+if (isProd) {
+    // Solo consola en producción/Vercel
+    log4js.configure({
+        appenders: {
+            consoleAppender: { type: 'console' }
+        },
+        categories: {
+            default: { appenders: ['consoleAppender'], level: 'info' }
+        }
+    });
+} else {
+    // Local/desarrollo: consola y archivo
+    log4js.configure({
+        appenders: {
+            fileAppender: { type: 'file', filename: './logs/app.log' },
+            consoleAppender: { type: 'console' }
+        },
+        categories: {
+            default: { appenders: ['fileAppender', 'consoleAppender'], level: 'debug' },
+            stg: { appenders: ['fileAppender'], level: 'info' },
+            prod: { appenders: ['fileAppender'], level: 'trace' }
+        }
+    });
+}
+
+const logger = log4js.getLogger('default');
 
 export default logger;
 
